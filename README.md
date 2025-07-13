@@ -6,7 +6,7 @@ Machine Me sends an eProposeDinner to Machine You, and You
 echoes it back.  Machine Me then sends an eDinner message to Machine
 You.
 
-Spec WeEatDinner is intended to observe that eDinner and assert true
+Monitor WeEatDinner is intended to observe that eDinner and assert true
 at that observation.  
 
 As of this writing, it compiles with `p compile`,
