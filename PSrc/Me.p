@@ -1,5 +1,4 @@
 
-event eProposeDinner : (source: Me, proposal: string);
 event eDinner : string;
 
 machine Me {
@@ -10,17 +9,16 @@ machine Me {
             you = yous;
             print format ("Me initialized with {0}", you);
 
-            send you, eProposeDinner, (source= this, proposal= "Pizza");
-            goto WaitForCounterProposal;
+            send you, eDinner, "Pizza";
+            goto WaitAround;
         }
     }
 
-    state WaitForCounterProposal {
-        on eProposeDinner do (input: (source: Me, proposal: string)) {
-            // Me receives a counter proposal.
-            print format("{0} dines with {1} on {2}!", this, you, input.proposal);
-            send you, eDinner, (input.proposal);
+    state WaitAround {
+        on eDinner do (input: string) {
+            print format("{0} is waiting around for {1} to respond with a counter proposal.", this, you);
         }
     }
+
 
 }

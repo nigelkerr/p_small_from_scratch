@@ -2,7 +2,7 @@
 
 event eSpec_WeEatDinner_Init;
 
-spec WeEatDinner observes eDinner {
+spec WeEatDinner observes eDinner, eSpec_WeEatDinner_Init {
     start state Init {
         on eSpec_WeEatDinner_Init goto WaitForDinner; 
     }
